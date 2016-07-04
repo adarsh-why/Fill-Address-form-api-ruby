@@ -1,0 +1,29 @@
+<form action= '/#' >
+
+  <h2> Address </h2>
+  
+  <h3>Address line 1</h3>
+  <p><input type="text" name="addr1" required></p>
+
+  <h3>Address line 2</h3>
+  <select name="addr2">
+    <% @address.each do |addr| %>
+		<option> <%= addr %> </option> 
+	<% end %>     
+  </select>
+
+  <h3>City</h3>
+  <p><input type="text" name="city" value=<%=@city%> required></p>
+
+  <h3>State</h3>
+  <p><input type="text" name="state" value=<%=@state%> required></p>
+
+  <h3>Pin</h3>
+  <p><input type="text" name="pincode" value=<%=@pincode%> required></p>
+
+  <h3>Country</h3>
+  <p><input type="text" name="country" value=<%=@country%> required></p>
+ 
+  <input type="submit">
+
+</form>
