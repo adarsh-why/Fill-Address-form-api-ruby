@@ -4,7 +4,7 @@ require 'open-uri'
 require 'json'
 require 'securerandom'
 
-def valid_key key
+def valid key
     File.open('key_db', 'r') do |file|  
         while line = file.gets
             return true if key == line.strip
@@ -81,7 +81,7 @@ end
 get '/api_key=:key/:code' do 
     key = params[:key]
     code = params[:code]
-    if valid_key key
+    if valid key
         result = api_selecter code
         return api_json result, code
     else
@@ -90,5 +90,5 @@ get '/api_key=:key/:code' do
 end
 
 get '/*' do
-	return "try url.com/api_key=[YOUR_API_KEY]/pincode to get address"
+    return "try url.com/api_key=[YOUR_API_KEY]/pincode to get address"
 end
