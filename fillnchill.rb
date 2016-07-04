@@ -15,7 +15,6 @@ end
 
 def generate_key
     new_key = SecureRandom.hex
-    puts new_key.class
     store new_key
     return new_key
 end
